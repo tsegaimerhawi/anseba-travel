@@ -2,12 +2,16 @@ name = "anseba-travel"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 main = ".open-next/worker.js"
+workers_dev = false
 
 [assets]
 directory = ".open-next/assets"
 not_found_handling = "single-page-application"
 
-# Add your Amadeus API keys in Cloudflare Dashboard → Workers & Pages → anseba-travel → Settings → Variables
-# AMADEUS_CLIENT_ID = "your_client_id"
-# AMADEUS_CLIENT_SECRET = "your_client_secret"
-# AMADEUS_ENV = "test"
+[[routes]]
+pattern = "ansebatraveltour.com/*"
+zone_name = "ansebatraveltour.com"
+
+[[routes]]
+pattern = "www.ansebatraveltour.com/*"
+zone_name = "ansebatraveltour.com"
